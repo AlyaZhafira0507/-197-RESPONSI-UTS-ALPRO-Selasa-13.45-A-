@@ -2,9 +2,7 @@
 #include <iomanip>
 #include <string>
 #include <limits>
- 
 using namespace std;
- 
 struct KTP {
     char nik[20];
     string nama;
@@ -22,15 +20,14 @@ struct KTP {
     string berlaku_hingga;
 };
  
-void clearInputBuffer() {
+void hapusdata() {
     cin.ignore(numeric_limits<streamsize>::max(), '\n');
 }
  
 void inputKTP(KTP &ktp) {
     cout << "Masukkan NIK: ";
     cin >> ktp.nik;
-    clearInputBuffer();
- 
+    hapusdata();
     cout << "Masukkan Nama: ";
     getline(cin, ktp.nama);
     cout << "Masukkan Tempat/Tgl Lahir: ";
@@ -39,8 +36,7 @@ void inputKTP(KTP &ktp) {
     getline(cin, ktp.jenis_kelamin);
     cout << "Masukkan Golongan Darah (A/B/AB/O): ";
     cin >> ktp.gol_darah;
-    clearInputBuffer();
- 
+    hapusdata();
     cout << "Masukkan Alamat: ";
     getline(cin, ktp.alamat);
     cout << "Masukkan RT/RW: ";
@@ -61,7 +57,7 @@ void inputKTP(KTP &ktp) {
     getline(cin, ktp.berlaku_hingga);
 }
  
-void displayKTP(const KTP &ktp) {
+void menampilkanKTP(const KTP &ktp) {
     cout << "\n================ KTP SIMULASI ================\n";
     cout << left << setw(20) << "NIK" << ": " << ktp.nik << endl;
     cout << left << setw(20) << "Nama" << ": " << ktp.nama << endl;
@@ -99,13 +95,13 @@ void editKTP(KTP &ktp) {
         cout << "0. Selesai Edit\n";
         cout << "Pilihan Anda: ";
         cin >> pilihan;
-        clearInputBuffer();
+        hapusdata();
  
         switch (pilihan) {
             case 1: cout << "Nama baru: "; getline(cin, ktp.nama); break;
             case 2: cout << "Tempat/Tgl Lahir baru: "; getline(cin, ktp.tempat_tgl_lahir); break;
             case 3: cout << "Jenis Kelamin baru: "; getline(cin, ktp.jenis_kelamin); break;
-            case 4: cout << "Golongan Darah baru (A/B/AB/O): "; cin >> ktp.gol_darah; clearInputBuffer(); break;
+            case 4: cout << "Golongan Darah baru (A/B/AB/O): "; cin >> ktp.gol_darah; hapusdata(); break;
             case 5: cout << "Alamat baru: "; getline(cin, ktp.alamat); break;
             case 6: cout << "RT/RW baru: "; getline(cin, ktp.rt_rw); break;
             case 7: cout << "Kelurahan/Desa baru: "; getline(cin, ktp.kel_desa); break;
@@ -123,21 +119,16 @@ void editKTP(KTP &ktp) {
  
 int main() {
     KTP ktp;
- 
     cout << "Input Data KTP\n";
     inputKTP(ktp);
- 
-    displayKTP(ktp);
- 
+    menampilkanKTP(ktp);
     char edit;
     cout << "\nApakah Anda ingin mengedit data? (y/n): ";
     cin >> edit;
-    clearInputBuffer();
- 
+    hapusdata();
     if (edit == 'y' || edit == 'Y') {
         editKTP(ktp);
-        displayKTP(ktp);
+        menampilkanKTP(ktp);
     }
- 
     return 0;
 }
