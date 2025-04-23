@@ -60,13 +60,6 @@ void isiKTP(KTP &ktp) {
     getline(cin, ktp.berlaku);
 }
  
-void cetakBingkaiAtasBawah(int panjang) {
-    for (int i = 0; i < panjang; i++) {
-        cout << "=";
-    }
-    cout << endl;
-}
- 
 void displayKTP(const KTP &ktp) {
     cout << "=========================================="<<endl;
     cout << "\tKARTU TANDA PENDUDUK (KTP)" << endl;
