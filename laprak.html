@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pertemmuan 3</title>
+</head>
+<body>
+   
+    <div style="border-radius: 10px; background-color: aliceblue; border: solid black 1px; padding: 20px;">
+        <div style="border-radius: 5px; background-color: azure; border: solid black 1px; padding: 10px;">
+            <h1 align = "center">Formulir Sederhana</h1>
+        </div>
+        <br><br>
+        <form >
+            <label for="name">Nama : </label>
+            <input type=" text" name="name" size="30" placeholder="Masukan nama" required><br><br>
+            <label for="gender">Pilhan jenis kelamin : </label>
+            <input type="radio" name="gender" value="male" required>
+            <label for="male">Pria</label>
+            <input type="radio" name="gender" value="female" required>
+            <label for="female">Wanita</label><br><br>
+
+            <label for="band">Prodi : </label>
+            <select name="" id="" size="1">
+                <option value="Informatika">Informatika</option>
+                <option value="Teknik Sipil">Teknik Sipil</option>
+                <option value="Kedokteran">Kedokteran</option>
+                <br><br>
+            </select>
+            <br><br>
+            <label for="Alamat ">Alamat : </label>
+            <textarea name="" id="" cols="50" rows="5" placeholder="Masukan Almat"></textarea><br><br>
+
+            <input type="checkbox" name="persetujuan" required>
+            <label for="persetujuan">
+                Dengan ini anda menyetujui syarat dan ketentuan
+            </label><br><br>
+            <input type="submit" value="kirim">
+            <input type="reset" value="reset form">
+        </form>
+    </div>
+</body>
+</html>
