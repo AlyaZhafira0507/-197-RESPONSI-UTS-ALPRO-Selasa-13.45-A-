@@ -1,0 +1,51 @@
+#include <iostream>
+using namespace std;
+
+class Hitung {
+public:
+    int proses();
+    void input();
+
+private:
+    int n;
+    float rumus, jumlah, total;
+};
+
+void Hitung::input() {
+    cout << "Tentukan nilai n : ";
+    cin >> n;
+    cout << endl;
+}
+
+int Hitung::proses() {
+    jumlah = 0;
+    total = 0;
+    rumus = -1;
+
+    cout << "Proses deret: ";
+
+    for (int j = 1; j <= n; j++) {
+        rumus = rumus * (-1);
+        total = rumus * 1.0 / j;
+        jumlah += total;
+
+        if (j == 1)
+            cout << "(" << total << ")";
+        else
+            cout << "+(" << total << ")";
+    }
+
+    cout << endl << endl << "Hasil penjumlahan deret = " << jumlah << endl;
+    return jumlah;
+}
+
+int main() {
+    cout << "Program sederhana menghitung jumlah dari rumus:\n";
+    cout << "1 - (1/2) + (1/3) - (1/4) + ... + (1/n)\n\n";
+
+    Hitung deret;
+    deret.input();
+    deret.proses();
+
+    return 0;
+}
