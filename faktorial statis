@@ -1,0 +1,22 @@
+#include <iostream>
+using namespace std;
+
+int faktorial(int n) {
+    int i;
+    int hasil = 1;
+    cout << n; 
+    for (i = n - 1; i >= 1; --i) {
+        cout << " x " << i;
+        hasil = hasil * (i + 1);
+    }
+    cout << endl; 
+    return hasil;
+}
+
+int main() {
+    int n;
+    cout << "Perhitungan: ";
+    int hasil = faktorial(n);
+    cout << "Hasil faktorial dari " << n << " adalah " << hasil << endl;
+    return 0;
+}
