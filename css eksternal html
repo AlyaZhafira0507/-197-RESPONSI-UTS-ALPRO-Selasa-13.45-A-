@@ -1,0 +1,25 @@
+code eksternal.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/style.css">
+    <title>css internal</title>
+   
+</head>
+<body>
+    <div class="box1">
+        <h1>Alya Zhafira NIha</h1>
+    </div>
+   
+</body>
+</html>
+
+code style.css
+h1{
+    color: green;
+}
+.box1{
+    background-color: red;
+    text-align: center;
+    padding: 10px;
+}
