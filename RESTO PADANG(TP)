@@ -1,0 +1,97 @@
+#include <iostream>
+using namespace std;
+
+const int JUMLAH_MENU = 5;
+
+string namaMenu[JUMLAH_MENU] = {
+    "Ayam Goreng",
+    "Rendang",
+    "Telur Balado",
+    "Sayur Nangka",
+    "Es Teh Manis"
+};
+
+double hargaMenu[JUMLAH_MENU] = {
+    18000,
+    25000,
+    10000,
+    8000,
+    5000
+};
+
+int pesanan[JUMLAH_MENU] = {0}; 
+
+void tampilkanMenu() {
+    cout << "\n=== MENU ===\n";
+    for (int i = 0; i < JUMLAH_MENU; ++i) {
+        cout << i + 1 << ". " << namaMenu[i] << " - Rp " << hargaMenu[i] << endl;
+    }
+}
+
+void tambahPesanan(int id, int jumlah) {
+    if (id < 1 || id > JUMLAH_MENU) {
+        cout << "ID tidak valid.\n";
+        return;
+    }
+    pesanan[id - 1] += jumlah;
+    cout << "Pesanan ditambahkan.\n";
+}
+
+void tampilkanPesanan() {
+    cout << "\n=== PESANAN ===\n";
+    bool kosong = true;
+    for (int i = 0; i < JUMLAH_MENU; ++i) {
+        if (pesanan[i] > 0) {
+            double total = pesanan[i] * hargaMenu[i];
+            cout << namaMenu[i] << " x" << pesanan[i] << " = Rp " << total << endl;
+            kosong = false;
+        }
+    }
+    if (kosong) cout << "Belum ada pesanan.\n";
+}
+
+void cetakStruk() {
+    double total = 0;
+    cout << "\n=== STRUK ===\n";
+    for (int i = 0; i < JUMLAH_MENU; ++i) {
+        if (pesanan[i] > 0) {
+            double subtotal = pesanan[i] * hargaMenu[i];
+            cout << namaMenu[i] << " x" << pesanan[i] << " = Rp " << subtotal << endl;
+            total += subtotal;
+        }
+    }
+    cout << "Total Bayar: Rp " << total << endl;
+    cout << "Terima kasih!\n";
+}
+
+int main() {
+    char pilih;
+    do {
+        cout << "\n=== MENU UTAMA ===\n";
+        cout << "1. Lihat Menu\n";
+        cout << "2. Tambah Pesanan\n";
+        cout << "3. Lihat Pesanan\n";
+        cout << "4. Cetak Struk\n";
+        cout << "0. Keluar\n";
+        cout << "Pilihan: ";
+        cin >> pilih;
+
+        switch (pilih) {
+            case '1': tampilkanMenu(); break;
+            case '2': {
+                int id, jumlah;
+                tampilkanMenu();
+                cout << "Masukkan ID Menu: "; cin >> id;
+                cout << "Jumlah: "; cin >> jumlah;
+                tambahPesanan(id, jumlah);
+                break;
+            }
+            case '3': tampilkanPesanan(); break;
+            case '4': cetakStruk(); break;
+            case '0': cout << "Keluar dari program.\n"; break;
+            default: cout << "Pilihan tidak valid.\n";
+        }
+    } while (pilih != '0');
+
+    return 0;
+}
