@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Memasukkan Bilangan</title>
+    <script src="jumlah.js"></script> <!-- Memuat JavaScript dari file eksternal -->
+</head>
+<body>
+    <form name="fform">
+        <h1>Memasukkan Data Lewat Keyboard</h1>
+        <pre>
+Bilangan Pertama : <input type="text" size="11" name="bilangan1">
+Bilangan Kedua   : <input type="text" size="11" name="bilangan2">
+        </pre>
+        <p>
+            <input type="button" value="Jumlahkan" onclick="jumlah()">
+            <input type="reset" value="Ulang">
+        </p>
+    </form>
+</body>
+</html>
