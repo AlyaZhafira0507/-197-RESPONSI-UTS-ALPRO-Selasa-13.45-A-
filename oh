@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Biodata Basic</title>
+</head>
+<body>
+    <h2>Form Biodata</h2>
+
+   
+    <form method="post">
+        
+        Nama: <input type="text" name="nama"><br><br>
+
+        Kelas: <input type="number" name="kelas"><br><br>
+
+        
+        Identitas:<br>
+        <input type="radio" name="identitas" value="mahasiswa" id="identitas_mahasiswa" checked>
+        <label for="identitas_mahasiswa">mahasiswa</label><br>
+
+        <input type="radio" name="identitas" value="mahasiswi" id="identitas_mahasiswi">
+        <label for="identitas_mahasiswi">mahasiswi</label><br>
+
+        <input type="radio" name="identitas" value="sigma" id="identitas_sigma">
+        <label for="identitas_sigma">sigma</label><br>
+
+        <input type="radio" name="identitas" value="jawa" id="identitas_jawa">
+        <label for="identitas_jawa">jawa</label><br><br>
+
+
+        <!-- Tombol kirim -->
+        <input type="submit" value="Kirim">
+    </form>
+
+    <?php
+    // Mengecek apakah form sudah disubmit
+    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        // Menyimpan input dari form ke dalam variabel
+        $nama = $_POST["nama"];
+        $kelas = $_POST["kelas"];
+        $ulangi = str_repeat(" PHP ", 3);
+        $tanggal=date("d-m-y");
+        $kata=strlen($nama);
+        
+        $identitas = $_POST["identitas"];
+
+        // Menampilkan hasil input
+        echo "<hr><h3>Hasil Input:</h3>";
+        echo "saya adalah seorang  $identitas  dengan $nama dari  $kelas sedang belajar $ulangi pada tanggal $tanggal  <br>";
+        
+
+
+        
+    }
+    ?>
+</body>
+</html>
