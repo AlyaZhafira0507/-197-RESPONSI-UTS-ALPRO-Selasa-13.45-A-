@@ -1,0 +1,52 @@
+#include <iostream>
+#include <algorithm> 
+
+using namespace std;
+
+int main() {
+    const int ROW = 3, COL = 3;
+    const int SIZE = ROW * COL * 2;
+    int array1[ROW][COL];
+    int array2[ROW][COL];
+    int mergedArray[SIZE];
+    int index = 0;
+    
+    cout << "Masukkan elemen array pertama (3x3):" << endl;
+    for (int i = 0; i < ROW; ++i) {
+        for (int j = 0; j < COL; ++j) {
+            cout << "array1[" << i << "][" << j << "]: ";
+            cin >> array1[i][j];
+        }
+    }
+
+    cout << "Masukkan elemen array kedua (3x3):" << endl;
+    for (int i = 0; i < ROW; ++i) {
+        for (int j = 0; j < COL; ++j) {
+            cout << "array2[" << i << "][" << j << "]: ";
+            cin >> array2[i][j];
+        }
+    }
+
+    for (int i = 0; i < ROW; ++i) {
+        for (int j = 0; j < COL; ++j) {
+            mergedArray[index++] = array1[i][j];
+        }
+    }
+
+    for (int i = 0; i < ROW; ++i) {
+        for (int j = 0; j < COL; ++j) {
+            mergedArray[index++] = array2[i][j];
+        }
+    }
+
+    sort(mergedArray, mergedArray + SIZE);
+
+    cout << "\nArray setelah digabung dan diurutkan:" << endl;
+    for (int i = 0; i < SIZE; ++i) {
+        cout << mergedArray[i] << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+	
