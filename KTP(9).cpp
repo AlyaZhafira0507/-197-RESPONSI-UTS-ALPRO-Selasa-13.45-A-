@@ -16,7 +16,6 @@ int main() {
 
     string data[jumlahPenduduk][kolom];
 
-    // Input Data
     cout << "\n========== INPUT DATA KTP ==========\n";
     for (int i = 0; i < jumlahPenduduk; i++) {
         cout << "\nData ke-" << i + 1 << ":\n";
@@ -26,8 +25,7 @@ int main() {
         }
     }
 
-    // Tampilkan Tabel Ringkas
-    cout << "\n\n========== TABEL DATA KTP (Ringkas) ==========\n";
+    cout << "\n\n================ TABEL DATA KTP (Ringkas) ================\n";
     cout << "--------------------------------------------------------------\n";
     cout << "| No |        NIK        |        Nama        | Tanggal Lahir |\n";
     cout << "--------------------------------------------------------------\n";
@@ -39,7 +37,6 @@ int main() {
     }
     cout << "--------------------------------------------------------------\n";
 
-    // Tampilkan Data Lengkap
     cout << "\n========== DATA KTP LENGKAP ==========\n";
     for (int i = 0; i < jumlahPenduduk; i++) {
         cout << "\nData ke-" << i + 1 << ":\n";
@@ -48,7 +45,6 @@ int main() {
         }
     }
 
-    // Fitur Pencarian
     string cari;
     bool ditemukan = false;
     cout << "\n========== PENCARIAN DATA ==========\n";
@@ -57,19 +53,18 @@ int main() {
 
     for (int i = 0; i < jumlahPenduduk; i++) {
         if (data[i][0] == cari || data[i][1] == cari) {
-            cout << "\n? Data ditemukan!\n";
+            cout << "\nData ditemukan!\n";
             for (int j = 0; j < kolom; j++) {
                 cout << judul[j] << " : " << data[i][j] << endl;
             }
             ditemukan = true;
-            break; // Hentikan pencarian setelah ditemukan
+            break;
         }
     }
 
     if (!ditemukan) {
-        cout << "\n? Data dengan NIK atau Nama \"" << cari << "\" tidak ditemukan.\n";
+        cout << "\nData dengan NIK atau Nama \"" << cari << "\" tidak ditemukan.\n";
     }
 
     return 0;
 }
-
